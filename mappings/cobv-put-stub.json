@@ -3,7 +3,7 @@
     "method": "PUT",
     "urlPattern": "/cobv/.*",
     "headers": {
-      "X-API-Key": {
+      "x-API-key": {
         "matches": "^[A-Za-z0-9-]{36}$"
       }
     }

@@ -1,0 +1,19 @@
+{
+  "name": "theke",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "description": "",
+  "devDependencies": {
+    "cypress": "^14.1.0",
+    "mockserver-node": "^5.15.0"
+  },
+  "dependencies": {
+    "json-server": "^1.0.0-beta.3"
+  }
+}

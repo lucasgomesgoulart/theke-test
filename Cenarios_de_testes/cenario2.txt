@@ -1,0 +1,26 @@
+Caso de Teste 2 (403)
+
+Criação de Cobrança Pix com Vencimento – Fluxo sem autenticação
+
+Objetivo:
+  Validar que, ao enviar uma chamada para API sem o header: "x-API-key" ou enviando um inválido
+  a API rejeita a requisição e retorna o status 403, com o objeto de erro conforme definido no Swagger.
+
+
+Pré-condições:
+  - O ambiente de testes da API estar configurado para retornar 403 para requisições PUT em /cobv/{txid} 
+    sem x-API-key no header.
+  - Não enviar a variável de ambiente X-API-KEY ou com um valor inválido
+  - O payload enviado contém todos os campos obrigatórios, formatados conforme o schema do Swagger.
+
+Dados de Entrada:
+  - Endpoint: /cobv/1
+  - Método: PUT
+
+
+Passos para Execução:
+  1. Preparar um payload válido com todos os campos obrigatórios.
+  2. Enviar uma requisição PUT para o endpoint /cobv/1, com o payload e sem o header X-API-KEY.
+
+Resultado Esperado:
+  - A API retorna o status code 403: Requisição de participante autenticado que viola alguma regra de autorização.

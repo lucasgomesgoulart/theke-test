@@ -1,0 +1,29 @@
+Caso de Teste 3 - (400)
+
+Criação de Cobrança Pix com Vencimento – validadeAposVencimento é menor do que zero.
+Requisição com formato inválido.
+
+Objetivo:
+  Validar que, ao enviar um payload com um campo inválido (ex: o campo calendario.validadeAposVencimento com valor negativo),
+  a API rejeita a requisição e retorna o status 400 (Bad Request), com o objeto de erro conforme definido no Swagger.
+
+Pré-condições:
+  - O ambiente de testes da API deve estar configurado para retornar 400 para requisições PUT em /cobv/{txid}
+    quando o payload violar o schema (por exemplo, quando calendario.validadeAposVencimento for negativo).
+  - A variável de ambiente X-API-KEY está definida com um valor válido (36 caracteres).
+  - O payload base contém todos os campos obrigatórios, mas será modificado para conter um valor inválido em calendario.validadeAposVencimento.
+
+Dados de Entrada:
+  - Endpoint: /cobv/1
+  - Método: PUT
+  - Headers: 
+      X-API-KEY: "valor_válido_de_36_caracteres"
+  - Payload: <definido_igualmente_no_swagger> porém com calendario.validadeAposVencimento < 0
+
+  Passos para Execução:
+  1. Preparar um payload válido e modificar o campo calendario.validadeAposVencimento para um valor negativo
+  2. Enviar uma requisição PUT para o endpoint /cobv/1, com o payload modificado e com o header X-API-KEY válido.
+
+Resultado Esperado:
+  - A API retorna um status code 400 (Bad Request).
+  - O body da resposta contém um objeto de erro que segue o schema do Swagger,

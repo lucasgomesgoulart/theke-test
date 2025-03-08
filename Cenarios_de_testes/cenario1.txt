@@ -1,0 +1,26 @@
+Caso de Teste 1 - (201)
+
+Criação de Cobrança Pix com Vencimento – Fluxo Feliz
+
+Objetivo:
+  Validar que, ao enviar um payload correto com um header X-API-KEY válido (36 caracteres),
+  a API cria a cobrança Pix com vencimento e retorna status 201, com todos os campos esperados, conforme definido no Swagger.
+
+Pré-condições:
+  - O ambiente de testes da API estar configurado para retornar 201 para requisições PUT em /cobv/{txid}.
+  - A variável de ambiente X-API-KEY está definida com um valor válido (36 caracteres).
+  - O payload enviado contém todos os campos obrigatórios, formatados conforme o schema do Swagger.
+
+Dados de Entrada:
+  - Endpoint: /cobv/1
+  - Método: PUT
+  - Headers: X-API-KEY: "valor_válido_de_36_caracteres"
+  - Payload: <conforme_dados_obrigatorios_swagger>
+
+Passos para Execução:
+  1. Preparar um payload válido com todos os campos obrigatórios.
+  2. Enviar uma requisição PUT para o endpoint /cobv/1, com o payload e o header X-API-KEY válido.
+
+Resultado Esperado:
+  - A API retorna o status code 201 (Created).
+  - O body da resposta contém os campos conforme o schema do Swagger.

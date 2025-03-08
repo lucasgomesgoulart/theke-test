@@ -1,0 +1,32 @@
+{
+  "priority": 1,
+  "request": {
+    "method": "PUT",
+    "urlPattern": "/cobv/.*",
+    "headers": {
+      "x-API-Key": {
+        "matches": "^[A-Za-z0-9-]{36}$"
+      }
+    },
+    "bodyPatterns": [
+      {
+        "matchesJsonPath": "$[?(@.calendario.validadeAposVencimento < 0)]"
+      }
+    ]
+  },
+  "response": {
+    "status": 400,
+    "jsonBody": {
+      "type": "https://pix.bcb.gov.br/api/v2/error/CobVOperacaoInvalida",
+      "title": "Cobrança inválida.",
+      "status": 400,
+      "detail": "A requisição que busca alterar ou criar uma cobrança com vencimento não respeita o _schema_ ou está semanticamente errada.",
+      "violacoes": [
+        {
+          "razao": "O objeto cobv.devedor não respeita o _schema_.",
+          "propriedade": "cobv.devedor"
+        }
+      ]
+    }
+  }
+}
